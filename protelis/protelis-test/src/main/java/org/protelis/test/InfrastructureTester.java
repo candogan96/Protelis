@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +32,6 @@ import gnu.trove.map.TIntObjectMap;
 import gnu.trove.map.hash.TIntObjectHashMap;
 import it.unibo.alchemist.boundary.interfaces.OutputMonitor;
 import it.unibo.alchemist.core.implementations.Engine;
-import it.unibo.alchemist.core.implementations.Engine.StateCommand;
 import it.unibo.alchemist.core.interfaces.Simulation;
 import it.unibo.alchemist.loader.YamlLoader;
 import it.unibo.alchemist.model.interfaces.Environment;
@@ -208,7 +208,7 @@ public final class InfrastructureTester {
             final YamlLoader loader = new YamlLoader(test);
             if (!multirun) {
                 assertTrue(simulationSteps + " is an invalid number of runs", simulationSteps >= 0);
-                final Environment<Object> env = loader.getWith(null);
+                final Environment<Object> env = loader.getWith(Collections.emptyMap());
                 final List<Pair<String, String>> expectedResult = TestMatcher.getResult(obs, test);
                 testSingleRun(obs, simulationSteps, stabilitySteps, env, expectedResult, f);
             } else {
@@ -354,7 +354,7 @@ public final class InfrastructureTester {
                 checkResult(obs, totalSimulationSteps + stabilitySteps, stabilitySteps, expectedResult, f, env, step);
             }
         });
-        sim.addCommand(new StateCommand<>().run().build());
+        sim.play();
         sim.run();
         assertFalse(obs.getFirstException().isPresent() ? obs.getFirstException().get().getMessage() : "", obs.getFirstException().isPresent());
     }
