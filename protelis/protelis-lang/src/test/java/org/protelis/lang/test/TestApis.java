@@ -173,6 +173,14 @@ public class TestApis {
     }
 
     /**
+     * Test broadcast.pt with isolated nodes.
+     */
+    @Test
+    public void testBroadcast2() {
+        test("broadcast2");
+    }
+
+    /**
      * Test C.pt.
      */
     @Test
@@ -346,6 +354,22 @@ public class TestApis {
     @Test
     public void testCRFGradient2() {
         test("crfGradient2");
+    }
+
+    /**
+     * Test bisGradient.pt.
+     */
+    @Test
+    public void testBISGradient() {
+        test("bisGradient");
+    }
+
+    /**
+     * Test bisGradient2.pt.
+     */
+    @Test
+    public void testBISGradient2() {
+        test("bisGradient2");
     }
 
     /**
@@ -676,6 +700,22 @@ public class TestApis {
     }
 
     /**
+     * Test hopBroadcast function.
+     */
+    @Test
+    public void testHopBroadcast() {
+        test("hopBroadcast");
+    }
+
+    /**
+     * Test hopDistanceTo function.
+     */
+    @Test
+    public void testHopDistanceTo() {
+        test("hopDistanceTo");
+    }
+
+    /**
      * Test multiC.pt.
      */
     @Test
@@ -857,6 +897,14 @@ public class TestApis {
     @Test
     public void testNeighborhood() {
         test("neighborhood");
+    }
+
+    /**
+     * Test once.pt.
+     */
+    @Test
+    public void testOnce() {
+        testProgram("once");
     }
 
     /**
