@@ -104,14 +104,10 @@ public abstract class AbstractAnnotatedTree<T> implements AnnotatedTree<T> {
         return annotation;
     }
 
-    @Override
-    public void reset() {
-        for (final AnnotatedTree<?> b : branches) {
-            b.reset();
-        }
-        annotation = null;
-    }
-
+    /**
+     * {@inheritDoc}
+     * Subclasses overriding this method must call super.{@link #erase()}
+     */
     @Override
     public void erase() {
         for (final AnnotatedTree<?> b : branches) {
