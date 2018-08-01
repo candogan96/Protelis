@@ -28,7 +28,9 @@ allprojects {
 
         doclet "org.jboss.apiviz:apiviz:$apivizVersion"
     }
-    
+    checkstyle {
+        configDir = file("$rootProject.projectDir/config/checkstyle")
+    }
     uploadArchives {
         repositories {
             mavenDeployer {
