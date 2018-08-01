@@ -26,11 +26,6 @@ public interface AnnotatedTree<T> extends Serializable {
     T getAnnotation();
 
     /**
-     * Recursively deletes any existing annotation.
-     */
-    void reset();
-
-    /**
      * |e| operation.
      */
     void erase();
