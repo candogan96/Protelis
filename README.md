@@ -73,8 +73,8 @@ Complete build reports can be downloaded [here][reports]
 ### Importing the project
 The project has been developed using Eclipse, and can be easily imported in such IDE.
 
+#### Eclipse Configuration
 
-#### Recommended configuration
 * Download [the latest Eclipse for Java SE developers][eclipse]. Arch Linux users can use the package extra/eclipse-java, which is rather up-to-date.
   * The minimum version required for a smooth import is Eclipse Mars.1, which integrates Gradle Buildship
   * Previous Eclipse versions are okay, provided that the Gradle Buildship plugin is installed
@@ -126,6 +126,63 @@ The project has been developed using Eclipse, and can be easily imported in such
 * The projects will appear in your projects list.
 * Checkstyle, PMD and FindBugs should be pre-configured.
 * If you get errors due to missing dependencies, right click on the project, select Gradle -> Refresh Gradle Project.
+
+#### IntelliJ configuration (recommended)
+* Download [the lastest IntelliJ](https://www.jetbrains.com/idea/download/).
+* Install the code quality plugins:
+  * Open IntelliJ
+  * If you have an open project close it
+  * From Welcome window go to Configure > Plugins
+  * Search FindBugs-IDEA, if No plugins found click Browse Repositories
+  * Select FindBugs-IDEA and click Install
+  * Wait for the download process to finish
+  * Search Checkstyle-IDEA, if No plugins found click Browse Repositories
+  * Select Checkstyle-IDEA and click Install
+  * Wait for the download process to finish
+  * Search PMDPlugin, if No plugins found click Browse Repositories
+  * Select PMDPlugin and click Install
+  * Wait for the download process to finish
+  * Click Restart IntelliJ IDEA
+  * Click OK
+  * Click Restart
+  * go to Configure -> Settings
+
+* Set the line delimiter to LF (only for Windows users)
+  * Go to Editor -> Code Style
+  * In Line Separator choose Unix and OS X (\n)
+  * Click OK
+
+#### Import Procedure
+* Install git on your system, if you haven't yet
+* Pull up a terminal, and `cd` to the folder where you want the project to be cloned
+* Clone the project with `git clone git@github.com:Protelis/Protelis.git`
+  * If you are a Windows user, you might find easier to import via HTTPS: `git clone https://github.com/Protelis/Protelis.git`
+* Click Import Project
+* Select the project root directory.
+* Next
+* Select Import project from external model
+* Select Gradle and click Next
+* Make sure that "Use default gradle wrapper (recommended)" is selected
+* Finish
+* Wait for IntelliJ to scan the project.
+* On the left panel click Project and select Project Files
+* The projects will appear in your projects list.
+
+##### Configure plugins
+
+* File -> Settings
+* Other Settings -> Checkstyle -> Configuration File -> Add
+* Select Use a local Checkstyle file
+* Browse for style.xml file, click OK
+* Select Store relative to project location
+* Enter a description and click OK
+* Make sure the configuration file added in previous step is Active
+* Click Apply
+* Go to Other Settings -> FindBugs-IDEA
+* Filter -> Exclude filter files -> Add
+* Select findbugsExcludes.xml and click OK
+* Click OK
+
 
 ### Developing the project
 Contributions to this project are welcome.  To ensure that your contribution is incorporated quickly, we request that you follow the following coding best practices:
